@@ -1,10 +1,8 @@
 package com.example.ktorapicalling.util
 
-import com.example.ktorapicalling.model.UserResponse
-
-sealed class ApiState {
-    object Empty: ApiState()
-    class Failure(val throwable: Throwable): ApiState()
-    class Success(val data: List<UserResponse>): ApiState()
-    object Loading : ApiState()
+sealed class ApiState<out T> {
+    class Empty<out T>: ApiState<T>()
+    data class Failure<out T> (val throwable: Throwable): ApiState<T>()
+    data class Success<out T> (val data: List<T>): ApiState<T>()
+    class Loading<out T> : ApiState<T>()
 }

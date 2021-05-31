@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class ApiService @Inject constructor() {
 
-    val client = HttpClient(Android) {
+    private val client = HttpClient(Android) {
         install(DefaultRequest) {
             headers.append("Content-Type", "application/json")
         }

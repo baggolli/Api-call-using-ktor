@@ -28,7 +28,7 @@ constructor() : ListAdapter<UserResponse, UserAdapter.UserViewHolder>(Diff) {
         }
 
         override fun areContentsTheSame(oldItem: UserResponse, newItem: UserResponse): Boolean {
-            return oldItem == newItem
+            return oldItem.equals(newItem)
         }
 
     }
