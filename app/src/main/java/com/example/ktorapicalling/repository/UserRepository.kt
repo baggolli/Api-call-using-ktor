@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class UserRepository @Inject constructor(private val apiService: ApiService) {
-    fun getUsers(): Flow<List<UserResponse>> = flow {
+    fun getUsers() = flow {
         emit(apiService.getUsersData())
     }.flowOn(Dispatchers.IO)
 }
